@@ -19,3 +19,9 @@ export const searchGnome = searchInput => {
     searchInput
   };
 };
+
+export const stopSearch = () => {
+  return {
+    type: actionTypes.STOP_SEARCH
+  };
+};
