@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import GnomesBrowser from './containers/GnomeBrowser';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
+import GnomeBrowser from './containers/GnomeBrowser/GnomeBrowser';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <GnomesBrowser />
+        <Switch>
+          <Route path="/" component={GnomeBrowser} />
+          <Redirect to="/" />
+        </Switch>
       </div>
     );
   }
