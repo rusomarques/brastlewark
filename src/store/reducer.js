@@ -2,7 +2,8 @@ import * as actionTypes from './actionTypes';
 
 const initialState = {
   gnomes: null,
-  searchResults: null
+  searchResults: null,
+  searching: false
 };
 
 const searchGnomes = (state, action) => {
@@ -14,7 +15,8 @@ const searchGnomes = (state, action) => {
 
   return {
     ...state,
-    searchResults: filteredGnomes
+    searchResults: filteredGnomes,
+    searching: true
   };
 };
 
@@ -27,6 +29,11 @@ const reducer = (state = initialState, action) => {
       };
     case actionTypes.SEARCH_GNOME:
       return searchGnomes(state, action);
+    case actionTypes.STOP_SEARCH:
+      return {
+        ...state,
+        searching: false
+      };
     default:
       return state;
   }
