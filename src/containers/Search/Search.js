@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchGnome } from './../../store/actions';
+import { searchGnome, stopSearch } from './../../store/actions';
 
 import classes from './Search.module.css';
 
 class Search extends Component {
   handleChange = e => {
     const searchInput = e.target.value;
-    this.props.onSearch(searchInput);
+    if (searchInput.length > 0) {
+      this.props.onSearch(searchInput);
+    } else {
+      this.props.onStopSearch();
+    }
   };
 
   render() {
@@ -24,7 +28,8 @@ class Search extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSearch: searchInput => dispatch(searchGnome(searchInput))
+    onSearch: searchInput => dispatch(searchGnome(searchInput)),
+    onStopSearch: () => dispatch(stopSearch())
   };
 };
 
