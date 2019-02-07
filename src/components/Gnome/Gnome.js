@@ -1,10 +1,16 @@
 import React from 'react';
+import classes from './Gnome.module.css';
 
 const Gnome = props => {
   return (
-    <div>
+    <div className={classes.Gnome}>
       <p>{props.gnome.name}</p>
-      <img src={props.gnome.thumbnail} alt={props.gnome.name} />
+      <div
+        class={classes.Img}
+        style={{
+          backgroundImage: 'url(' + props.gnome.thumbnail + ')'
+        }}
+      />
     </div>
   );
 };
