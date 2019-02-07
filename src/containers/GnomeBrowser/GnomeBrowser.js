@@ -4,6 +4,7 @@ import { initGnomes } from '../../store/actions';
 import Gnomes from '../../components/Gnomes/Gnomes';
 import classes from './GnomeBrowser.module.css';
 import Search from '../Search/Search';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class GnomeBrowser extends Component {
   componentDidMount() {
@@ -11,7 +12,7 @@ class GnomeBrowser extends Component {
   }
 
   render() {
-    let gnomes = null;
+    let gnomes = <Spinner />;
     if (this.props.gnomes) {
       let gnomesInfo = this.props.gnomes;
       if (this.props.searchResults && this.props.searching) {
