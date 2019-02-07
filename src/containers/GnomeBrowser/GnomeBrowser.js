@@ -14,8 +14,7 @@ class GnomeBrowser extends Component {
     let gnomes = null;
     if (this.props.gnomes) {
       let gnomesInfo = this.props.gnomes;
-      if (this.props.searchResults) {
-        console.log('hola');
+      if (this.props.searchResults && this.props.searching) {
         gnomesInfo = this.props.searchResults;
       }
       gnomes = <Gnomes gnomes={gnomesInfo} />;
@@ -35,7 +34,8 @@ class GnomeBrowser extends Component {
 const mapStateToProps = state => {
   return {
     gnomes: state.gnomes,
-    searchResults: state.searchResults
+    searchResults: state.searchResults,
+    searching: state.searching
   };
 };
 
