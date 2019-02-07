@@ -9,7 +9,7 @@
   box-shadow: 0 0 11px 5px rgba(50, 50, 50, 0.2);
   background-color: white;
   backface-visibility: hidden;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .Gnome img {
