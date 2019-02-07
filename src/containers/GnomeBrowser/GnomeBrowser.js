@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { initGnomes } from './../store/actions';
-import Gnomes from '../components/Gnomes/Gnomes';
+import { initGnomes } from '../../store/actions';
+import Gnomes from '../../components/Gnomes/Gnomes';
 
-class GnomesBrowser extends Component {
+class GnomeBrowser extends Component {
   componentDidMount() {
     this.props.onInitGnomes();
   }
@@ -33,4 +33,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(GnomesBrowser);
+)(GnomeBrowser);
