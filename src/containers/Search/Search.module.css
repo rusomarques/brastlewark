@@ -1,0 +1,10 @@
+.SearchBar {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0 20px;
+  font-size: 1.8em;
+  color: black;
+  font-weight: 300;
+  outline: none;
+}
