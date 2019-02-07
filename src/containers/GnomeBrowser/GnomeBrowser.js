@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { initGnomes } from '../../store/actions';
 import Gnomes from '../../components/Gnomes/Gnomes';
+import classes from './GnomeBrowser.module.css';
 
 class GnomeBrowser extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class GnomeBrowser extends Component {
       gnomes = <Gnomes gnomes={this.props.gnomes} />;
     }
 
-    return gnomes;
+    return <div className={classes.GnomeBrowser}>{gnomes}</div>;
   }
 }
 
