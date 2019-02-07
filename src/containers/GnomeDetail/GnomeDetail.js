@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import classes from './GnomeDetail.module.css';
 
 class GnomeDetail extends Component {
   render() {
@@ -17,23 +18,22 @@ class GnomeDetail extends Component {
       } = this.props.gnome;
 
       gnomeDetail = (
-        <div>
-          <p>Name: {name}</p>
-          <p>Age: {age}</p>
-          <p>Height {height}</p>
-          <p>{weight}</p>
-          <p>{hair_color}</p>
-          <img src={thumbnail} alt={name} />
+        <div className={classes.GnomeDetail}>
+          <h2 className={classes.Name}>{name}</h2>
+          <div className={classes.GnomeDetailCard}>
+            <img src={thumbnail} alt={name} />
+            <div className={classes.GnomeInfo}>
+              <p>{age} years</p>
+              <p>Height: {height}</p>
+              <p>Weight: {weight}</p>
+              <p>{hair_color} hair</p>
+            </div>
+          </div>
         </div>
       );
     }
 
-    return (
-      <div>
-        <h2>Gnome detail</h2>
-        {gnomeDetail}
-      </div>
-    );
+    return gnomeDetail;
   }
 }
 
