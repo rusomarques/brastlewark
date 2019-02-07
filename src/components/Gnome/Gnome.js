@@ -6,7 +6,7 @@ const Gnome = props => {
     <div className={classes.Gnome}>
       <p>{props.gnome.name}</p>
       <div
-        class={classes.Img}
+        className={classes.Img}
         style={{
           backgroundImage: 'url(' + props.gnome.thumbnail + ')'
         }}
