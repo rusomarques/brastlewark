@@ -8,8 +8,8 @@ const Gnomes = props => {
   const paginationSelector = 'pagin-selector';
 
   let numOfGnomes;
-  if (props.pages) {
-    numOfGnomes = props.pages * props.perPage;
+  if (props.pagesShown) {
+    numOfGnomes = props.pagesShown * props.perPage;
   } else {
     numOfGnomes = 1337;
   }

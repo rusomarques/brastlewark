@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { initGnomes } from '../../store/actions';
+import { initGnomes, loadNextPage } from '../../store/actions';
 import Gnomes from '../../components/Gnomes/Gnomes';
 import classes from './GnomeBrowser.module.css';
 import Search from '../Search/Search';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
-class GnomeBrowser extends Component {
+export class GnomeBrowser extends Component {
   state = {
     scrolling: false,
-    page: 1,
     perPage: 20,
     totalPages: 67
   };
@@ -20,23 +19,29 @@ class GnomeBrowser extends Component {
     });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', e => {
+      this.handleScroll(e);
+    });
+  }
+
   handleScroll = e => {
     const { scrolling, totalPages, page } = this.state;
     if (scrolling) return;
     if (totalPages <= page) return;
     const lastGnome = document.querySelector('.pagin-selector:last-child');
-    const lastGnomeOffset = lastGnome.offsetTop + lastGnome.clientHeight;
-    const pageOffset = window.pageYOffset + window.innerHeight;
-    const bottomOffset = 10;
-    if (pageOffset > lastGnomeOffset - bottomOffset) {
-      this.loadMore();
+    if (lastGnome) {
+      const lastGnomeOffset = lastGnome.offsetTop + lastGnome.clientHeight;
+      const pageOffset = window.pageYOffset + window.innerHeight;
+      const bottomOffset = 10;
+      if (pageOffset > lastGnomeOffset - bottomOffset) {
+        this.onScroll();
+      }
     }
   };
 
-  loadMore() {
-    this.setState(prevState => ({
-      page: prevState.page + 1
-    }));
+  onScroll() {
+    this.props.onLoadNextPage();
   }
 
   render() {
@@ -49,7 +54,7 @@ class GnomeBrowser extends Component {
       gnomes = (
         <Gnomes
           gnomes={gnomesInfo}
-          pages={this.state.page}
+          pagesShown={this.props.pagesShown}
           perPage={this.state.perPage}
         />
       );
@@ -70,13 +75,15 @@ const mapStateToProps = state => {
   return {
     gnomes: state.gnomes,
     searchResults: state.searchResults,
-    searching: state.searching
+    searching: state.searching,
+    pagesShown: state.pagesShown
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onInitGnomes: () => dispatch(initGnomes())
+    onInitGnomes: () => dispatch(initGnomes()),
+    onLoadNextPage: () => dispatch(loadNextPage())
   };
 };
 

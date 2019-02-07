@@ -3,7 +3,8 @@ import * as actionTypes from './actionTypes';
 const initialState = {
   gnomes: null,
   searchResults: null,
-  searching: false
+  searching: false,
+  pagesShown: 1
 };
 
 const searchGnomes = (state, action) => {
@@ -33,6 +34,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searching: false
+      };
+    case actionTypes.LOAD_NEXT_PAGE:
+      const newPagesShown = state.pagesShown + 1;
+      return {
+        ...state,
+        pagesShown: newPagesShown
       };
     default:
       return state;

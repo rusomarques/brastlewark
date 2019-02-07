@@ -25,3 +25,9 @@ export const stopSearch = () => {
     type: actionTypes.STOP_SEARCH
   };
 };
+
+export const loadNextPage = () => {
+  return {
+    type: actionTypes.LOAD_NEXT_PAGE
+  };
+};
