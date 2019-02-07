@@ -1,7 +1,8 @@
 export const initialState = {
   gnomes: null,
   searchResults: null,
-  searching: false
+  searching: false,
+  pagesShown: 1
 };
 
 export const gnomes = [

@@ -16,7 +16,8 @@ describe('reducer', () => {
     ).toEqual({
       gnomes: mocks.gnomes,
       searchResults: null,
-      searching: false
+      searching: false,
+      pagesShown: 1
     });
   });
 
@@ -26,7 +27,8 @@ describe('reducer', () => {
         {
           gnomes: mocks.gnomes,
           searchResults: null,
-          searching: false
+          searching: false,
+          pagesShown: 1
         },
         {
           type: actionTypes.SEARCH_GNOME,
@@ -36,7 +38,8 @@ describe('reducer', () => {
     ).toEqual({
       gnomes: mocks.gnomes,
       searchResults: mocks.searchResults,
-      searching: true
+      searching: true,
+      pagesShown: 1
     });
   });
 
@@ -46,7 +49,8 @@ describe('reducer', () => {
         {
           gnomes: mocks.gnomes,
           searchResults: mocks.searchResults,
-          searching: true
+          searching: true,
+          pagesShown: 1
         },
         {
           type: actionTypes.STOP_SEARCH
@@ -55,7 +59,8 @@ describe('reducer', () => {
     ).toEqual({
       gnomes: mocks.gnomes,
       searchResults: mocks.searchResults,
-      searching: false
+      searching: false,
+      pagesShown: 1
     });
   });
 });
