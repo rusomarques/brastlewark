@@ -12,3 +12,10 @@ export const setGnomes = gnomes => {
     gnomes
   };
 };
+
+export const searchGnome = searchInput => {
+  return {
+    type: actionTypes.SEARCH_GNOME,
+    searchInput
+  };
+};
