@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { initGnomes } from './../store/actions';
+import Gnomes from '../components/Gnomes/Gnomes';
 
 class GnomesBrowser extends Component {
   componentDidMount() {
@@ -8,7 +9,12 @@ class GnomesBrowser extends Component {
   }
 
   render() {
-    return <div>GnomesList</div>;
+    let gnomes = null;
+    if (this.props.gnomes) {
+      gnomes = <Gnomes gnomes={this.props.gnomes} />;
+    }
+
+    return gnomes;
   }
 }
 
