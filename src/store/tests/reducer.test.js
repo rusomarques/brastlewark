@@ -63,4 +63,15 @@ describe('reducer', () => {
       pagesShown: 1
     });
   });
+
+  it('should set searching to falseon STOP_SEARCH action', () => {
+    expect(
+      reducer(mocks.initialState, {
+        type: actionTypes.LOAD_NEXT_PAGE
+      })
+    ).toEqual({
+      ...mocks.initialState,
+      pagesShown: 2
+    });
+  });
 });
