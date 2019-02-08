@@ -7,6 +7,13 @@ const initialState = {
   pagesShown: 1
 };
 
+const setGnomes = (state, action) => {
+  return {
+    ...state,
+    gnomes: action.gnomes
+  };
+};
+
 const searchGnomes = (state, action) => {
   const lowercaseSearchInput = action.searchInput.toLowerCase();
 
@@ -21,26 +28,31 @@ const searchGnomes = (state, action) => {
   };
 };
 
+const stopSearch = (state, action) => {
+  return {
+    ...state,
+    searching: false
+  };
+};
+
+const loadNextPage = (state, action) => {
+  const newPagesShown = state.pagesShown + 1;
+  return {
+    ...state,
+    pagesShown: newPagesShown
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_GNOMES:
-      return {
-        ...state,
-        gnomes: action.gnomes
-      };
+      return setGnomes(state, action);
     case actionTypes.SEARCH_GNOME:
       return searchGnomes(state, action);
     case actionTypes.STOP_SEARCH:
-      return {
-        ...state,
-        searching: false
-      };
+      return stopSearch(state, action);
     case actionTypes.LOAD_NEXT_PAGE:
-      const newPagesShown = state.pagesShown + 1;
-      return {
-        ...state,
-        pagesShown: newPagesShown
-      };
+      return loadNextPage(state, action);
     default:
       return state;
   }
