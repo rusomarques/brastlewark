@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import classes from './Gnome.module.css';
 
 const Gnome = props => {
@@ -13,6 +15,10 @@ const Gnome = props => {
       />
     </div>
   );
+};
+
+Gnome.propTypes = {
+  gnome: PropTypes.object.isRequired
 };
 
 export default Gnome;
