@@ -19,11 +19,11 @@ describe('<GnomeBrowser />', () => {
     wrapper = shallow(<GnomeBrowser onInitGnomes={() => {}} />);
   });
 
-  it('should render a <Search /> if />', () => {
+  it('should render a <Search /> />', () => {
     expect(wrapper.find(Search)).toHaveLength(1);
   });
 
-  it('should render a <Spinner /> if elements if gnomes not loaded', () => {
+  it('should render a <Spinner /> if gnomes not loaded', () => {
     expect(wrapper.find(Spinner)).toHaveLength(1);
   });
 

@@ -43,7 +43,7 @@ describe('reducer', () => {
     });
   });
 
-  it('should set searching to falseon STOP_SEARCH action', () => {
+  it('should set searching to false on STOP_SEARCH action', () => {
     expect(
       reducer(
         {
@@ -64,7 +64,7 @@ describe('reducer', () => {
     });
   });
 
-  it('should set searching to falseon STOP_SEARCH action', () => {
+  it('should increase 1 pagesShown on LOAD_NEXT_PAGE', () => {
     expect(
       reducer(mocks.initialState, {
         type: actionTypes.LOAD_NEXT_PAGE
