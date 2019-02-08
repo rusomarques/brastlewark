@@ -4,12 +4,18 @@ Our heroes just arrived at a Gnome town called Brastlewark. To facilitate trade 
 
 Easily search the gnome you are looking for, and check its details.
 
-### Installation
+## Screenshot
+
+<div>
+  <img src="./src/assets/home.png" alt="home" width="100%">
+</div>
+
+## Installation
 
 1. Clone this repo
 
    ```bash
-     git https://github.com/rusomarques/brastlewark.git
+     https://github.com/rusomarques/brastlewark.git
      cd brastlewark
    ```
 
