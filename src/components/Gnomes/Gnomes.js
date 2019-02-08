@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Gnome from '../Gnome/Gnome';
 import classes from './Gnomes.module.css';
@@ -23,6 +24,11 @@ const Gnomes = props => {
       </div>
     );
   });
+};
+
+Gnomes.propTypes = {
+  pagesShown: PropTypes.number.isRequired,
+  gnomes: PropTypes.array.isRequired
 };
 
 export default Gnomes;
