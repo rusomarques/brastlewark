@@ -30,3 +30,7 @@ Easily search the gnome you are looking for, and check its details.
 
 - React / Redux
 - Jest and Enzyme
+
+#### API
+
+- https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json
